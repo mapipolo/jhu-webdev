@@ -37,6 +37,10 @@ div.menuItem {
     background-color: #999999;
 }
 
+div.menuItem:hover {
+    overflow-y: scroll;
+}
+
 div.menuItem > h2 {
     max-width: 7em;
     margin: 0px;
@@ -47,6 +51,7 @@ div.menuItem > h2 {
 
 div.menuItem > section {
     padding: 1em;
+    padding-top: 0.8em;
 }
 
 .menuItem.poultry > h2 {
