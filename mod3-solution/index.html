@@ -6,88 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <title>Module 2 Solution - Pipolo</title>
+    <title>Module 3 Solution - Pipolo</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Food, LLC</a>
+                <a class="navbar-brand pull-left" href="#">Food, LLC</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#collapsable-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
+        <div class="container-fluid collapse" id="collapsable-nav" >
+            <div class="bg-light shadow-3 p-4">
+                <a href="#chickenTile" class="btn btn-link btn-block m-0">Chicken</a>
+                <a href="#beefTile" class="btn btn-link btn-block m-0">Beef</a>
+                <a href="#sushiTile" class="btn btn-link btn-block m-0">Sushi</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="row">
-        <h1 class="medAndLargeScreens">Our Menu</h1>
-        <h1 class="mobileScreens">Categories</h1>
-
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="menuItem poultry">
-                <h2>Chicken<span class="headerDetail">... balm for the soul and nourishment for the body</span></h2>
-                <section>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis
-                    autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit
-                    qui in ea voluptate velit esse quam nihil molestiae consequatur.</section>
+    <div id="main-content" class="container-fluid">
+        <h1 class="page-title text-center">Our Menu</h1>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="tile" id="chickenTile">
+                <h3 class="text-center">Chicken</h3>
+                <section>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. (Maybe.)
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam?
+                </section>
+                <p class="backToTop">
+                    <a href="#navbar">Back to top</a>
+                </p>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="menuItem beef">
-                <h2>Beef<span class="headerDetail">... that which is red brings vigor and much stamina</span></h2>
-                <section>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam?</section>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="tile" id="beefTile">
+                <h3 class="text-center">Beef</h3>
+                <section>
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam?
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. (Maybe.)
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+                </section>
+                <p class="backToTop">
+                    <a href="#navbar">Back to top</a>
+                </p>
             </div>
         </div>
-        <div class="col-lg-4 col-md-12 col-sm-12">
-            <div class="menuItem seafood">
-                <h2>Sushi<span class="headerDetail">... swaddle your fishy friends in a blanket of rice</span></h2>
-                <section>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-                    quia voluptas sit aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                    doloremque laudantium, totam rem aperiam. (Maybe.)</section>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="tile" id="sushiTile">
+                <h3 class="text-center">Sushi</h3>
+                <section>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. (Maybe.)
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam?
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+                </section>
+                <p class="backToTop">
+                    <a href="#navbar">Back to top</a>
+                </p>
             </div>
         </div>
     </div>
-    <script id="__bs_script__">//<![CDATA[
-        document.write("<script async src='http://HOST:3002/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
+
+    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
