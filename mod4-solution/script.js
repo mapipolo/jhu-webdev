@@ -62,4 +62,20 @@
       helloSpeaker.speak(names[i]);
     }
   }
+
+  // STEP JHU 2A
+  var greetingChooser = function(n) {
+    var firstLetter = n.charAt(0).toLowerCase();
+    if (firstLetter == 'j') {
+      return byeSpeaker.speakSimple(n);
+    } else {
+      return helloSpeaker.speakSimple(n);
+    }
+  };
+
+  var greetings = names.map(n => greetingChooser(n));
+  greetings.forEach(g => {
+    console.log(g);
+  });
+  // greetings.reduce(g => console.log(g));
 })();
