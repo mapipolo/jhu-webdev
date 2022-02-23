@@ -21,13 +21,6 @@
   Hello Paula
   Hello Laura
   Good Bye Jim
-  
-  WARNING!!! WARNING!!!
-  The code does NOT currently work! It is YOUR job to make it work
-  as described in the requirements and the steps in order to complete this
-  assignment.
-  WARNING!!! WARNING!!!
-  
   */
 
   // STEP 1:
@@ -72,10 +65,24 @@
       return helloSpeaker.speakSimple(n);
     }
   };
-
+  
   var greetings = names.map(n => greetingChooser(n));
   greetings.forEach(g => {
     console.log(g);
   });
-  // greetings.reduce(g => console.log(g));
+
+  // STEP JHU 3
+  var hello = [];
+  var allHellos = names.reduce((prev, cur) => 
+    cur.charAt(0).toLowerCase() == 'j'
+    ? prev 
+    : prev + helloSpeaker.speakSimple(cur) + "\n", hello);
+  console.log(allHellos);
+
+  var bye = [];
+  var allByes = names.reduce((prev, cur) => 
+    cur.charAt(0).toLowerCase() == 'j'
+    ? prev + byeSpeaker.speakSimple(cur) + "\n"
+    : prev, bye);
+  console.log(allByes);
 })();
