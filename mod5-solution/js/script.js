@@ -7,6 +7,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
       $("#collapsable-nav").collapse('hide');
     }
   });
+
 });
 
 (function (global) {
@@ -22,6 +23,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtmlUrl = "snippets/about-snippet.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -143,6 +145,45 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
+
+
+var randOneThroughFive = function() {
+  return Math.ceil(Math.random() * 5);
+};  
+
+// Load the about view
+dc.loadAbout = function () {
+  console.log("in loadAbout function");
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+      var emptyStar = "fa fa-star-o";
+      var filledStar = "fa fa-star";
+      var numStars = randOneThroughFive();
+      console.log("Rating is " + numStars + " stars");
+      var modifiedHtml = aboutHtml;
+      
+      for (var i = 1; i <= numStars; i++) {
+        var propertyName = "ratingStar_" + i;
+        modifiedHtml = insertProperty(modifiedHtml, propertyName, filledStar);
+      }
+      
+      for (var i = numStars + 1; i <= 5; i++) {
+        var propertyName = "ratingStar_" + i;
+        modifiedHtml = insertProperty(modifiedHtml, propertyName, emptyStar);
+      }
+
+      modifiedHtml = insertProperty(modifiedHtml, "numStars", numStars);
+
+      insertHtml("#main-content", modifiedHtml);
+    },
+    false);
+};
+
+// Add an event listener for a click on the About button
+// $("#aboutPageLink").click(dc.loadAbout);
+document.getElementById("aboutPageLink").addEventListener("click", dc.loadAbout);
 
 
 // Load the menu items view

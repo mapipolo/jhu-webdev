@@ -7,7 +7,7 @@
     <title>David Chu's China Bistro</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   </head>
@@ -47,7 +47,7 @@
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" id="aboutPageLink">
                 <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
             </li>
             <li>
@@ -105,8 +105,13 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/ajax-utils.js"></script>
   <script src="js/script.js"></script>
-  <script type='text/javascript' id="__bs_script__">//<![CDATA[
-    document.write("<script async src='/browser-sync/browser-sync-client.2.10.1.js'><\/script>".replace("HOST", location.hostname));
-//]]></script>
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));
+//]]></script><script async="" src="/browser-sync/browser-sync-client.js?v=2.27.7"></script>
+
+<h1>
+  <a href="#" onclick="$dc.loadAbout();">LOAD ABOUT PAGE</a>
+</h1>
+
 </body>
 </html>

@@ -227,6 +227,17 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
+
+#rating {
+  margin: 20px 0 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#ratingText {
+  margin-left:10px;
+}
+
 /* END SINGLE CATEGORY PAGE */
 
 
