@@ -46,8 +46,8 @@
               <a href="#" onclick="$dc.loadMenuCategories();">
                 <span class="glyphicon glyphicon-cutlery"></span><br class="hidden-xs"> Menu</a>
             </li>
-            <li>
-              <a href="#" id="aboutPageLink">
+            <li id="navAboutButton">
+              <a href="#">
                 <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
             </li>
             <li>
@@ -105,5 +105,13 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/ajax-utils.js"></script>
   <script src="js/script.js"></script>
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.7'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
+<h6>
+  <a href="#" onclick="$dc.loadAbout();">LOAD ABOUT PAGE</a>
+</h6>
+
 </body>
 </html>

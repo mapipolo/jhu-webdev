@@ -147,7 +147,7 @@ dc.loadMenuCategories = function () {
 };
 
 
-var randOneThroughFive = function() {
+function randOneThroughFive () {
   return Math.ceil(Math.random() * 5);
 };  
 
@@ -183,9 +183,29 @@ dc.loadAbout = function () {
     false);
 };
 
-// Add an event listener for a click on the About button
-// $("#aboutPageLink").click(dc.loadAbout);
-document.getElementById("aboutPageLink").addEventListener("click", dc.loadAbout);
+// Add an event listener for a click on the About button.
+// This doesn't work.
+document.querySelector("#navAboutButton").addEventListener("click", function (event) {
+  dc.loadAbout();
+});
+
+// I tried this too:
+// document.querySelector("#navAboutButton").addEventListener("click", dc.loadAbout);
+
+// I tried the getElementById approach, and putting the event subscription 
+// at the top along with the "blur" one. I also tried making "event" an argument
+// of the function and passing it in from these.
+
+// This didn't work either:
+// $(function () { // Same as document.addEventListener("DOMContentLoaded"...
+//   // Add an event listener for a click on the About button
+//   document.querySelector("#navAboutButton").addEventListener("click", function (event) {
+//     dc.loadAbout();
+//   });
+// });
+
+// Nor did this work in the index.html page:
+// <a href="#" onclick="$dc.loadAbout();">
 
 
 // Load the menu items view
