@@ -153,7 +153,6 @@ var randOneThroughFive = function() {
 
 // Load the about view
 dc.loadAbout = function () {
-  console.log("in loadAbout function");
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     aboutHtmlUrl,
@@ -161,18 +160,18 @@ dc.loadAbout = function () {
       var emptyStar = "fa fa-star-o";
       var filledStar = "fa fa-star";
       var numStars = randOneThroughFive();
-      console.log("Rating is " + numStars + " stars");
+      // console.log("Rating is " + numStars + " stars");
       var modifiedHtml = aboutHtml;
       
       for (var i = 1; i <= numStars; i++) {
         var propertyName = "ratingStar_" + i;
-        console.log("Subbing property '" + propertyName + "' with a filled star");
+        // console.log("Subbing property '" + propertyName + "' with a filled star");
         modifiedHtml = insertProperty(modifiedHtml, propertyName, filledStar);
       }
       
       for (var i = numStars + 1; i <= 5; i++) {
         var propertyName = "ratingStar_" + i;
-        console.log("Subbing property '" + propertyName + "' with an empty star");
+        // console.log("Subbing property '" + propertyName + "' with an empty star");
         modifiedHtml = insertProperty(modifiedHtml, propertyName, emptyStar);
       }
 
