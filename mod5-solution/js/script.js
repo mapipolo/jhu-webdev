@@ -153,6 +153,7 @@ var randOneThroughFive = function() {
 
 // Load the about view
 dc.loadAbout = function () {
+  console.log("Loading the about page...");
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     aboutHtmlUrl,
