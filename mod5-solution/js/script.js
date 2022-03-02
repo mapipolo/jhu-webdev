@@ -166,11 +166,13 @@ dc.loadAbout = function () {
       
       for (var i = 1; i <= numStars; i++) {
         var propertyName = "ratingStar_" + i;
+        console.log("Subbing property '" + propertyName + "' with a filled star");
         modifiedHtml = insertProperty(modifiedHtml, propertyName, filledStar);
       }
       
       for (var i = numStars + 1; i <= 5; i++) {
         var propertyName = "ratingStar_" + i;
+        console.log("Subbing property '" + propertyName + "' with an empty star");
         modifiedHtml = insertProperty(modifiedHtml, propertyName, emptyStar);
       }
 
