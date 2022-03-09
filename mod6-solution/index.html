@@ -11,19 +11,20 @@
 </head>
 
 <body>
-  <div class="container" ng-controller="LunchCheckController">
+  <div class="container">
     <h1>Lunch Checker</h1>
-    <div class="form-group">
-      <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch"
-        class="form-control" ng-model="items" ng-blur="updateMessage()">
-    </div>
-    <div class="form-group">
-      <button class="btn btn-default" ng-click="checkForTooMuch()">Check If Too Much</button>
-      <span class="sidenote">{{emptyItemsCaveat}}</span>
-    </div>
-    <div class="form-group message">
-      {{message}}
-    </div>
+    <form ng-submit="checkForTooMuch()" ng-controller="LunchCheckController">
+      <div class="form-group">
+        <input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="items">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default" ng-click="checkForTooMuch()">Check If Too Much</button>
+        <span class="sidenote">{{emptyItemsCaveat}}</span>
+      </div>
+      <div class="form-group message {{messageClass}}">
+        {{message}}
+      </div>
+    </form>
   </div>
 
 </body>

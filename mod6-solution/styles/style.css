@@ -1,9 +1,25 @@
 .message {
+    padding: 3px;
     font-size: 1.3em;
     font-weight: bold;
+    text-align: center;
 }
 
-.sidenote {
+.message.hidden {
+    visibility: hidden;
+}
+
+.message.good {
+    color: green;
+    border: 1px solid green;
+}
+
+.message.warning {
+    color: red;
+    border: 1px solid red;
+}
+
+span.sidenote {
     color: gray;
     font-size: 0.8em;
 }
