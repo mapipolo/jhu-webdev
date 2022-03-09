@@ -7,6 +7,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
       $("#collapsable-nav").collapse('hide');
     }
   });
+
 });
 
 (function (global) {
@@ -22,6 +23,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtmlUrl = "snippets/about-snippet.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -84,9 +86,7 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   function (responseCategoriesObject) {
-    console.log("calling buildAndShowHomeHTML");
     buildAndShowHomeHTML(responseCategoriesObject);
-    console.log("done calling buildAndShowHomeHTML");
   },
   true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
@@ -96,14 +96,10 @@ $ajaxUtils.sendGetRequest(
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-  console.log("inside buildAndShowHomeHTML");
-
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-      console.log("yo");
-
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
@@ -121,18 +117,14 @@ function buildAndShowHomeHTML (categories) {
       // Hint: you need to surround the chosen category short name with something before inserting
       // it into the home html snippet.
       //
-      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "{{randomCategoryShortName}}", "'" + chosenCategoryShortName + "'");
-      console.log("finished inserting property");
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", "'" + chosenCategoryShortName + "'");
 
       // TODO: STEP 4: Insert the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example
       // of how to do that.
-      // ....
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
     },
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
-
-    console.log("exiting buildAndShowHomeHTML");
 }
 
 
@@ -153,6 +145,67 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
+
+
+function randOneThroughFive () {
+  return Math.ceil(Math.random() * 5);
+};  
+
+// Load the about view
+dc.loadAbout = function () {
+  console.log("Loading the about page...");
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+      var emptyStar = "fa fa-star-o";
+      var filledStar = "fa fa-star";
+      var numStars = randOneThroughFive();
+      // console.log("Rating is " + numStars + " stars");
+      var modifiedHtml = aboutHtml;
+      
+      for (var i = 1; i <= numStars; i++) {
+        var propertyName = "ratingStar_" + i;
+        // console.log("Subbing property '" + propertyName + "' with a filled star");
+        modifiedHtml = insertProperty(modifiedHtml, propertyName, filledStar);
+      }
+      
+      for (var i = numStars + 1; i <= 5; i++) {
+        var propertyName = "ratingStar_" + i;
+        // console.log("Subbing property '" + propertyName + "' with an empty star");
+        modifiedHtml = insertProperty(modifiedHtml, propertyName, emptyStar);
+      }
+
+      modifiedHtml = insertProperty(modifiedHtml, "numStars", numStars);
+
+      insertHtml("#main-content", modifiedHtml);
+    },
+    false);
+};
+
+// Add an event listener for a click on the About button.
+// This doesn't work.
+document.querySelector("#navAboutButton").addEventListener("click", function (event) {
+  dc.loadAbout();
+});
+
+// I tried this too:
+// document.querySelector("#navAboutButton").addEventListener("click", dc.loadAbout);
+
+// I tried the getElementById approach, and putting the event subscription 
+// at the top along with the "blur" one. I also tried making "event" an argument
+// of the function and passing it in from these.
+
+// This didn't work either:
+// $(function () { // Same as document.addEventListener("DOMContentLoaded"...
+//   // Add an event listener for a click on the About button
+//   document.querySelector("#navAboutButton").addEventListener("click", function (event) {
+//     dc.loadAbout();
+//   });
+// });
+
+// Nor did this work in the index.html page:
+// <a href="#" onclick="$dc.loadAbout();">
 
 
 // Load the menu items view
