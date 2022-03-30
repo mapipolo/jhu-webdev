@@ -9,10 +9,10 @@ li {
     font-size: 1.2em;
 }
 
-li>button {
-    margin-left: 6px;
+li>input {
+    width: 2.5em;
 }
 
-button>span {
-    color: green;
+li>button {
+    margin-left: 6px;
 }

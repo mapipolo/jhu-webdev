@@ -20,8 +20,9 @@
       <div class="col-md-6" ng-controller="ToBuyController as ctrlToBuy">
         <h2>To Buy:</h2>
         <ul>
-          <li ng-repeat="item in ctrlToBuy.itemsToBuy">
-            Buy {{ item.quantity }} {{ item.name }}
+          <li ng-repeat="item in ctrlToBuy.itemsToBuy track by $index">
+            Buy <input type="text" ng-model="item.quantity" placeholder="{{ item.quantity }}">
+            <strong>{{ item.name }}</strong> at {{ item.pricePerItem | tridollar }} ea
             <button ng-click="ctrlToBuy.markAsBought($index);">Bought</button>
           </li>
         </ul>
@@ -33,7 +34,8 @@
         <h2>Already Bought:</h2>
         <ul>
           <li ng-repeat="item in ctrlBought.itemsBought">
-            Bought {{ item.quantity }} {{ item.name }}
+            Bought {{ item.quantity }} {{ item.name }} for total price of 
+            <strong>{{ item.quantity * item.pricePerItem | tridollar }}</strong>
           </li>
         </ul>
         <div class="emptyMessage" ng-if="ctrlBought.itemsBought.length == 0">Nothing bought yet.</div>

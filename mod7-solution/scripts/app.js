@@ -4,7 +4,8 @@
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
-.service('ShoppingListCheckOffService', ShoppingListCheckOffService);
+.service('ShoppingListCheckOffService', ShoppingListCheckOffService)
+.filter('tridollar', TridollarFilter);
 
 ToBuyController.$inject = ['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
@@ -28,13 +29,13 @@ function ShoppingListCheckOffService() {
     var service = this;
 
     var itemsToBuy = [
-        { name: "bags of za'atar", quantity: "2" },
-        { name: "bag of coffee beans", quantity: "1" },
-        { name: "bunch of cilantro", quantity: "1" },
-        { name: "lamb shoulder", quantity: "1" },
-        { name: "fennel bulb", quantity: "1" },
-        { name: "eggplants", quantity: "3" },
-        { name: "jar of tahini", quantity: "1" },
+        { name: "bags of za'atar", pricePerItem: 3.79, quantity: "2" },
+        { name: "bag of coffee beans", pricePerItem: 13.99, quantity: "1" },
+        { name: "bunch of cilantro", pricePerItem: 2.50, quantity: "1" },
+        { name: "lamb shoulder", pricePerItem: 38.00, quantity: "1" },
+        { name: "fennel bulb", pricePerItem: 5.33, quantity: "1" },
+        { name: "eggplants", pricePerItem: 2.19, quantity: "3" },
+        { name: "jar of tahini", pricePerItem: 7.69, quantity: "1" },
     ];
     var itemsBought = [];
   
@@ -49,6 +50,12 @@ function ShoppingListCheckOffService() {
 
     service.getBoughtItems = function () {
         return itemsBought;
+    };
+}
+
+function TridollarFilter() {
+    return function (input) {
+      return "$$$" + (Math.round(input * 100) / 100).toFixed(2);
     };
 }
 
