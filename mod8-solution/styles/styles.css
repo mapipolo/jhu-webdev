@@ -1,13 +1,12 @@
 h1 {
   margin-bottom: 30px;
 }
-input[type="text"] {
-  width: 200px;
-  float: left;
+span.menuItemName {
+  font-weight: bold;
 }
-.narrow-button {
-  float: left;
-  margin-left: 10px;
+span.menuItemDescription {
+  color: gray;
+  font-size: 0.7em;
 }
 .loader {
   display: none;

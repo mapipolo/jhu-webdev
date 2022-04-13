@@ -3,27 +3,69 @@
 'use strict';
 
 angular.module('NarrowItDownApp', [])
-       .controller('NarrowItDownController', NarrowItDownController)
-       .service('MenuSearchService', MenuSearchService);
+    .controller('NarrowItDownController', NarrowItDownController)
+    .service('MenuSearchService', MenuSearchService)
+    .directive('foundItems', FoundItemsDirective);
 
+function FoundItemsDirective() {
+    var ddo = {
+        templateUrl: 'foundItems.html',
+        scope: {
+            items: '<',
+            onRemove: '&'
+        },
+        controller: NarrowItDownController,
+        controllerAs: 'list',
+        bindToController: true
+    };
+    
+    return ddo;
+}
+      
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
-    var ctrlNid = this;
+    var ctrl = this;
 
-    ctrlNid.found = []; // initialize to a reasonable value
+    ctrl.found = [];
 
-    ctrlNid.getMatchedMenuItems = function (searchTerm) {
-        found = MenuSearchService.getMatchedMenuItems(searchTerm);
+    ctrl.getMatchedMenuItems = function () {
+        var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchTerm);
+
+        promise.then(function (result) {
+            console.log("Success!");
+            ctrl.found = result;
+            console.log(ctrl.found);
+        })
+        .catch(function (error) {
+            console.log("Uh oh! The search failed. " + error);
+        })
+    }
+
+    ctrl.removeItem = function (index) {
+        console.log("Removing element at " + index + " from array of length " + ctrl.found.length + "...");
+        ctrl.found.splice(index, 1);
     }
 }
 
-function MenuSearchService() {
+MenuSearchService.$inject = ['$http'];
+function MenuSearchService($http) {
     var service = this;
 
-    var endpointURL = "https://davids-restaurant.herokuapp.com/menu_items.json";
-    
     service.getMatchedMenuItems = function (searchTerm) {
-        return [ "Not yet implemented" ];
+        console.log("Searching for menu items containing '" + searchTerm + "'...");
+        return $http({
+            method: "GET",
+            url: "https://davids-restaurant.herokuapp.com/menu_items.json"
+        }).then(function (response) {
+            var matches = [];
+            response.data.menu_items.forEach(i => {
+                if (i.description.toLowerCase().indexOf(searchTerm) > -1) {
+                    matches.push(i);
+                }
+            });
+            console.log("Found " + matches.length + " matching items.");
+            return matches;
+        });
     };
 }
 

@@ -1,0 +1,9 @@
+<h3>Matched Menu Items</h3>
+<ul>
+  <li ng-repeat="item in list.items">
+    <button ng-click="list.onRemove({index: $index});">x</button>
+    <span class="menuItemName">{{ item.name }}</span>
+    <span class="menuItemDescription">({{ item.description }})</span>
+  </li>
+</ul>
+<div class="error" ng-if="list.found.length === 0">No matches!</div>
