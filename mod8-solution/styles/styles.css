@@ -1,6 +1,9 @@
 h1 {
   margin-bottom: 30px;
 }
+li {
+  margin: 5px 0;
+}
 span.menuItemName {
   font-weight: bold;
 }
