@@ -1,13 +1,9 @@
 <div>
-    <a ui-sref="home">Home</a>
+    <a ui-sref="home">Home</a> |
+    Categories
 </div>
 
 <div>
-    <h3>Choose a menu category:</h3> {{ ctrl.testProp }}
-    <ul>
-        <li ng-repeat="cat in $catsCtrl.items"
-            ui-sref="items({cat.short_name})">
-            {{ cat.name }}
-        </li>
-    </ul>
+    <h3>Choose a menu category:</h3>
+    <categories items="catsCtrl.items"></categories>
 </div>

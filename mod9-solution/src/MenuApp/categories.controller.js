@@ -7,7 +7,6 @@ angular.module('MenuApp')
 CategoriesController.$inject = ['items'];
 function CategoriesController(items) {
     var catsCtrl = this;
-    catsCtrl.testProp = "hi there!";
     catsCtrl.items = items;
     console.log("catsCtrl.Items = " + catsCtrl.items);
 }
