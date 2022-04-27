@@ -1,5 +1,5 @@
 <ul>
     <li ng-repeat="item in $ctrl.items">
-        <strong>{{ item.name }} (${{ item.price_large }})</strong>: {{ item.description }}
+        <strong>{{ item.name }} ({{ item.price_large | currency }})</strong>: {{ item.description }}
     </li>
 </ul>

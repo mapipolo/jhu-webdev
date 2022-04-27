@@ -42,7 +42,6 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
                     'MenuDataService', 
                     function ($stateParams, MenuDataService) {
                         console.log("Resolving 'items' state...");
-                        console.log("$stateParams.categoryName: " + $stateParams.categoryName)
                         return MenuDataService.getItemsForCategory($stateParams.categoryName);
                     }]
         }

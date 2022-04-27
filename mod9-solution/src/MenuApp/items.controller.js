@@ -8,7 +8,6 @@ ItemsController.$inject = ['items'];
 function ItemsController(items) {
     var itemsCtrl = this;
     itemsCtrl.items = items;
-    console.log("itemsCtrl.Items = " + itemsCtrl.items);
 }
 
 })();
