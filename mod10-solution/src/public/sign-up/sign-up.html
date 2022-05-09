@@ -1,0 +1,62 @@
+<div class="container">
+    <h2 class="text-center">
+      Sign Up for Our Newsletter
+    </h2>
+
+    <form name='signUpForm' novalidate>
+
+        <input type="text" name="firstName" placeholder="First name"
+            ng-model="signUpCtrl.firstName"
+            required>
+        <span
+            ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">
+            First name is required
+        </span>
+        <br>
+
+        <input type="text" name="lastName" placeholder="Last name"
+            ng-model="signUpCtrl.lastName"
+            required>
+        <span ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">
+            Last name is required
+        </span>
+        <br>
+
+        <input type="email" name="email" placeholder="Email"
+            ng-model="signUpCtrl.email"
+            required>
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+            Must be a valid email address (i.e., handle@domain)
+        </span>
+        <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+            ng-model="signUpCtrl.phone"
+            pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+            Phone number must be in the format ###-###-####
+        </span>
+        <br>
+
+        <input type="text" name="favoriteDish" placeholder="A1"
+            ng-model="signUpCtrl.favoriteDish"
+            pattern="([A-Z]{1,2})(\d{1,2})"
+            required>
+        <span ng-if="signUpForm.favoriteDish.$error.required && signUpForm.favoriteDish.$touched">
+            Favorite dish is required
+        </span>
+        <span ng-if="signUpForm.favoriteDish.$invalid && signUpForm.favoriteDish.$touched">
+            Format of dish name must be type, then number (e.g., A11)
+        </span>
+        <br>
+
+        <button
+            ng-disabled="signUpForm.$invalid"
+            ng-click="signUpCtrl.submit()">Submit</button>
+
+    </form>
+
+    <div id="info" ng-if="signUpCtrl.saved">
+        Your information has been saved. Thank you for subscribing!
+    </div>
+</div>

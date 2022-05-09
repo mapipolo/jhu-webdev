@@ -1,0 +1,21 @@
+<div class="container">
+    <h2 class="text-center">
+      My Subscription Info
+    </h2>
+    
+    <div ng-if="infoCtrl.firstName == nil">
+      Not signed up yet.
+      <a ui-sref="public.sign-up">Sign up now!</a>
+    </div>
+
+    <div ng-if="infoCtrl.firstName != nil">
+      <p>You are subscribed to our newsletter as follows:</p>
+      <ul>
+        <li>First name: <strong>{{ infoCtrl.firstName }}</strong></li>
+        <li>Last name: <strong>{{ infoCtrl.lastName }}</strong></li>
+        <li>Email: <strong>{{ infoCtrl.email }}</strong></li>
+        <li>Phone: <strong>{{ infoCtrl.phone }}</strong></li>
+        <li>Favorite dish: <strong>{{ infoCtrl.favoriteDish }}</strong></li>
+      </ul>
+    </div>
+</div>
