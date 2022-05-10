@@ -15,7 +15,10 @@
         <li>Last name: <strong>{{ infoCtrl.lastName }}</strong></li>
         <li>Email: <strong>{{ infoCtrl.email }}</strong></li>
         <li>Phone: <strong>{{ infoCtrl.phone }}</strong></li>
-        <li>Favorite dish: <strong>{{ infoCtrl.favoriteDish }}</strong></li>
+        <li>Favorite dish: <strong>{{ infoCtrl.favoriteDishObject.name }}</strong><br>
+          <img ng-src="{{ infoCtrl.favoriteDishImgUrl }}"/><br>
+          {{ infoCtrl.favoriteDishObject.description }}
+        </li>
       </ul>
     </div>
 </div>

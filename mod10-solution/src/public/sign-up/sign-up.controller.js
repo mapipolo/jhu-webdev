@@ -4,8 +4,8 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['DataService'];
-function SignUpController(dataService) {
+SignUpController.$inject = ['DataService', 'MenuService'];
+function SignUpController(dataService, menuService) {
   var ctrl = this;
 
   ctrl.firstName = "";
@@ -22,6 +22,15 @@ function SignUpController(dataService) {
     dataService.save('email', ctrl.email);
     dataService.save('phone', ctrl.phone);
     dataService.save('favoriteDish', ctrl.favoriteDish);
+    
+    menuService.getMenuItem(ctrl.favoriteDish).then(
+    function(response) {
+      dataService.save('favoriteDishObject', response);
+      console.log(response);
+    }, function(error) {
+      console.log("There was an error retrieving favorite dish: " + error);
+    });
+
     ctrl.saved = true;
     console.log("Form submitted.");
   }
